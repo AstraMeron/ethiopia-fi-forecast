@@ -1,20 +1,31 @@
-# ethiopia-fi-forecast
 # Ethiopia Financial Inclusion Forecasting (2026-2027)
-**Author:** Meron Tilahun (Mary) | 10 Academy KAIM Training
+**Author:** Meron Tilahun (Mary) | 5th Year CSE, ASTU
+**Training:** 10 Academy KAIM (Batch 2026)
 
-## Project Overview
-This project leverages the Unified Schema to forecast financial inclusion indicators in Ethiopia. It bridges historical data (Findex, NBE) with recent 2025/2026 market developments like Telebirr and Safaricom's entry.
+## 📌 Project Overview
+This project focuses on modeling and forecasting financial inclusion (FI) indicators in Ethiopia. It utilizes a **Unified Schema** to combine historical survey data with real-time market milestones (Telebirr, Safaricom, Fayda ID).
 
-## Key Insights (Task 2)
-1. **The Registration Paradox:** Mobile money accounts grew 1,200%, but formal ownership only grew +3pp (2021-2024).
-2. **Infrastructure Lag:** 4G expansion leads usage growth by approximately 12 months.
-3. **KYC Barriers:** Stagnation is primarily driven by lack of formal ID; Fayda ID is the predicted catalyst for 2026 growth.
+---
 
-## Dataset & Enrichment
-- **Source:** `ethiopia_fi_unified_data.csv`
-- **Enrichments:** Added 2025 Telebirr user growth (58.6M) and Fayda Digital ID policy milestones.
+## 🛠 Task 1: Data Enrichment & Schema Mapping
+**Objective:** Enhance the raw dataset with recent market observations to improve forecast accuracy.
+- **Key Additions:**
+    - Updated **Telebirr** usage data to EOY 2025 (58.6M users).
+    - Integrated **Fayda Digital ID** mandatory policy as a key institutional event.
+- **Unified Schema:** All data was mapped to a standardized format involving `pillars`, `indicators`, and `impact_links`.
 
-## How to Run
-1. Clone the repo.
-2. Install requirements: `pip install -r requirements.txt`
-3. Run `notebooks/02_exploratory_data_analysis.ipynb`.
+## 📊 Task 2: Exploratory Data Analysis (EDA)
+**Objective:** Analyze patterns and identify drivers of financial inclusion.
+- **Key Insights:**
+    1. **The +3pp Stagnation:** Account ownership grew only 3% (2021-2024) despite massive mobile money expansion, likely due to KYC barriers and dormancy.
+    2. **Infrastructure Lead:** 4G coverage growth consistently leads usage growth by 12–18 months.
+    3. **The ID Catalyst:** Analysis suggests the Digital ID rollout is the most significant non-market driver for 2026 growth.
+
+## 🧪 Robustness & Reproducibility
+- **Error Handling:** Notebooks include `try-except` blocks for data loading and path validation.
+- **Data Validation:** Automated assertions check for duplicate record IDs and critical null values.
+- **Processed Output:** The final enriched dataset is available in `data/processed/ethiopia_fi_final_enriched.csv`.
+
+## ⚠️ Limitations
+- **Data Sparsity:** Relying on 3-year Findex cycles creates temporal gaps.
+- **Proxy Use:** Operator data (registered accounts) may overrepresent unique users due to multi-SIM cards.
